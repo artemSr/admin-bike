@@ -1,7 +1,14 @@
-import React from "react";
+import React,{useState} from "react";
 
 
-export default function BikeItem({bike}){
+export default function BikeItem({bike,changeBikeStatus,deleteBike}){
+    const [status, setStatus] = useState(bike.status);
+
+    function handleChange(event){
+        setStatus(event.target.value);
+        changeBikeStatus(bike.id,event.target.value)
+    }
+
     const classes = [];
     if (bike.status === 'busy'){
         classes.push('busy')
@@ -16,15 +23,17 @@ export default function BikeItem({bike}){
                 <p className={`id ${classes.join(' ')}`}>ID: {bike.id}</p>
                 <div className={'status-wrapper'}>
                     <p>STATUS:</p>
-                    <select value={bike.status}>
+                    <select value={status} onChange={handleChange}>
                         <option value="available">Available</option>
                         <option value="busy">Busy</option>
                         <option value="unavailable">Unavailable</option>
                     </select>
                 </div>
             </div>
-            <div>
-                <h1 className={classes.join(' ')}>{bike.price}.</h1>
+            <div className={'price-wrapper'}>
+                <button className={'deleteButton'}
+                        onClick={deleteBike.bind(null,bike.id)}> </button>
+                <h1 className={classes.join(' ')}>{bike.price + ' UAH/hr'}.</h1>
             </div>
         </li>
     )
