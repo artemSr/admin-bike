@@ -27,7 +27,7 @@ export default function Statistics({bikes}){
             })
         }
         else {
-             averageCost =  bikes.reduce((sum, current) => sum + Number(current.price),0) / bikes.length;
+             averageCost =  parseFloat((bikes.reduce((sum, current) => sum + Number(current.price),0) / bikes.length).toFixed(2));
         }
     }
 
