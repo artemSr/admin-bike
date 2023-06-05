@@ -21,12 +21,18 @@
   },
   "rules": {
     "semi": "warn",
-    "no-console": "warn",
+    "no-console": "off",
     "eol-last": "warn",
     "quotes": ["error", "double", { "allowTemplateLiterals": true }],
     "max-len": ["error", { "code": 100, "ignoreUrls": true }],
     "indent": [1, "tab"],
     "no-nested-ternary": "off",
-    "comma-spacing": "warn"
+    "comma-spacing": "warn",
+    "no-unused-vars": "off",
+    "no-tabs": "off",
+    "no-plusplus": "off",
+    "no-return-assign": "off",
+    "no-shadow": "off",
+    "no-param-reassign": "off"
   }
 }
